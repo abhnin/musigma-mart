@@ -27,5 +27,15 @@ public class JPAProductsService implements ProductService {
 	        return new Product(entity.sku, entity.title, entity.price);
 	    }
 
+	@Override
+	public Product getProductBySku(String sku) {
+		ProductEntity entity = this.productRepository.findBySku(sku);
+        if (entity == null) {
+            return null;
+        }
+
+        return mapEntity(entity);
+	}
+
 
 }
