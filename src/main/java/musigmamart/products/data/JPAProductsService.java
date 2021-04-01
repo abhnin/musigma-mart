@@ -37,5 +37,12 @@ public class JPAProductsService implements ProductService {
         return mapEntity(entity);
 	}
 
+	@Override
+	public Iterable<Product> getProductsContaining(String type) {
+		 return StreamSupport.stream(productRepository.findAllBySkuContaining(type).spliterator(), false)
+		            .map(this::mapEntity)
+		            .collect(Collectors.toList());
+	}
+
 
 }
