@@ -1,5 +1,5 @@
 # musigma-mart 🔥
-Shopping Mart
+Computer Shopping Mart
 
 # Tech Stack
 
@@ -9,14 +9,13 @@ MusctacheJS
 H2(Testing) 📦
 
 
-Features
+# Features
 
-Computer shopping mart
-Add to cart
-Wishlist products
-Signup and Login
-Order History
-Add Address
-Sort by Price
-Filter by Product Category
+*Add to cart
+*Wishlist products
+*Signup and Login
+*Order History
+*Add Address
+*Sort by Price
+*Filter by Product Category
 
