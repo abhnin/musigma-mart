@@ -42,6 +42,10 @@ class OrderController {
         
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     	
+    	if(authentication.getName().equals("anonymousUser")) {
+    		return "redirect:/login";
+    	}
+    	
     	
     	final String address = Stream.of(addressLine1, addressLine2, postcode).collect(Collectors.joining(", "));
         String orderList = cart.getProducts().stream().map(e -> e.toString()).reduce("", String::concat);
