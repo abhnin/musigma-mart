@@ -5,7 +5,7 @@ Computer Shopping Mart
 
 * Spring Boot
 * MySQL(Production) 📦
-* MusctacheJS
+* Mustache.js
 * H2(Testing) 📦
 
 
