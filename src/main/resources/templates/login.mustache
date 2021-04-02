@@ -20,5 +20,9 @@
     </div>
 </div>
 
-
+	{{#errorMessage}}
+		<script type="text/javascript">
+     alert('{{errorMessage}}');
+    </script>
+	{{/errorMessage}}
 {{>footer}}

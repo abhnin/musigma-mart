@@ -31,7 +31,7 @@ public class BrowserClient {
 	}
 
     @SneakyThrows
-	public void clickAddToBasket(String title) {
+	public void clickAddToCart(String title) {
         List<DomNode> itemCards = this.currentPage.getByXPath(String.format("//div[descendant::a[text()='%s'] and @class='card h-100']", title));
         if (itemCards.size() != 1) {
             log.warn("No item card found for {}", title);
@@ -47,7 +47,7 @@ public class BrowserClient {
         this.currentPage = addButton.click();
 	}
 
-	public Integer getBasketItems() {
+	public Integer getCartItems() {
         try {
             String basketTotalValue = this.currentPage.querySelector(".basket-total").asText();
             return Integer.parseInt(basketTotalValue);
@@ -57,12 +57,12 @@ public class BrowserClient {
     }
 
     @SneakyThrows
-    public void goToBasket() {
+    public void goToCart() {
         this.currentPage = this.webClient.getPage("http://localhost:8080/cart");
     }
 
-	public String getBasketItemQtyLabel(String title) {
-        DomNode itemRow = getBasketItemRow(title);
+	public String getCartProductQtyLabel(String title) {
+        DomNode itemRow = getCartItemRow(title);
         if (itemRow == null) {
             return "";
         }
@@ -71,8 +71,8 @@ public class BrowserClient {
 	}
 
 	@SneakyThrows
-    public void clickRemoveFromBasket(String title) {
-        DomNode itemRow = getBasketItemRow(title);
+    public void clickRemoveFromCart(String title) {
+        DomNode itemRow = getCartItemRow(title);
         if (itemRow == null) {
             return;
         }
@@ -97,7 +97,7 @@ public class BrowserClient {
         return this.currentPage.asText();
     }
 
-    private DomNode getBasketItemRow(String title) {
+    private DomNode getCartItemRow(String title) {
         List<DomNode> items = this.currentPage.getByXPath(String.format("//tr[descendant::td[text()='%s']]", title));
         if (items.size() != 1) {
             log.warn("No item found with title {}", title);

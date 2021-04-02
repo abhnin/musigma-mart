@@ -27,7 +27,7 @@ class SignupController {
 
     @PostMapping
     String signup(String email, String password, String addressLine1, String addressLine2, String postcode) {
-        if (this.signupService.accountExists(email)) {
+        if (this.signupService.accountExists(email)) { //check user exists
             return "redirect:/login";
         }
 
