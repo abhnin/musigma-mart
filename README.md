@@ -3,10 +3,10 @@ Computer Shopping Mart
 
 # Tech Stack
 
-Spring Boot
-MySQL(Production) 📦
-MusctacheJS
-H2(Testing) 📦
+* Spring Boot
+* MySQL(Production) 📦
+* MusctacheJS
+* H2(Testing) 📦
 
 
 # Features
