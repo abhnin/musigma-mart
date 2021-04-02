@@ -11,7 +11,7 @@ public class CartItem {
 	final private Product product;
 	final private int quantity;
 	
-	BigDecimal getTotalPriceForProduct() {
+	BigDecimal getTotal() {
 		return this.product.getPrice().multiply(BigDecimal.valueOf(quantity));
 	}
 	
