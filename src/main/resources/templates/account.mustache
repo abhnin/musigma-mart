@@ -19,6 +19,26 @@
                 <button type="submit" class="btn btn-primary float-right" id="complete">Update</button>
             </form>
         </div>
+        
+        <div class="row">
+
+                {{#pastorders}}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="#" class="item-title">Order Number#{{idOrders}}</a>
+                                </h4>
+                                <h5 class="item-price">{{OrderDetails}}</h5>
+                            </div>
+                            
+                        </div>
+                    </div>
+                {{/pastorders}}
+
+            </div>
+        
     </div>
 </div>
 {{>footer}}

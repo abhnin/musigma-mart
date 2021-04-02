@@ -1,11 +1,15 @@
 package musigmamart.order;
 
 import musigmamart.cart.CartItem;
+import musigmamart.products.ProductService;
+
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SimpleOrderReceiver {
+	
+	
 
     @EventListener
     public void onNewOrder(OrderReceivedEvent event) {

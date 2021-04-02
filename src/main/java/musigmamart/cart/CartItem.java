@@ -15,5 +15,7 @@ public class CartItem {
 		return this.product.getPrice().multiply(BigDecimal.valueOf(quantity));
 	}
 	
+	
+	
 
 }

@@ -1,5 +1,6 @@
 package musigmamart.products.data;
 
+import java.util.Comparator;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -40,8 +41,31 @@ public class JPAProductsService implements ProductService {
 	@Override
 	public Iterable<Product> getProductsContaining(String type) {
 		 return StreamSupport.stream(productRepository.findAllBySkuContaining(type).spliterator(), false)
+				 	//.sorted((o1, o2)->o1.price.compareTo(o2.price))
 		            .map(this::mapEntity)
 		            .collect(Collectors.toList());
+	}
+	
+	@Override
+	public Iterable<Product> getProductsContaining(String type, String sort) {
+		
+		if (sort.equals("H2L")) {
+			return StreamSupport.stream(productRepository.findAllBySkuContaining(type).spliterator(), false)
+				 	.sorted((o1, o2)->o2.price.compareTo(o1.price))
+		            .map(this::mapEntity)
+		            .collect(Collectors.toList());
+		}else if(sort.equals("L2H")) {
+			return StreamSupport.stream(productRepository.findAllBySkuContaining(type).spliterator(), false)
+				 	.sorted((o1, o2)->o1.price.compareTo(o2.price))
+		            .map(this::mapEntity)
+		            .collect(Collectors.toList());
+		}else {
+			return StreamSupport.stream(productRepository.findAllBySkuContaining(type).spliterator(), false)
+				 	//.sorted((o1, o2)->o1.price.compareTo(o2.price))
+		            .map(this::mapEntity)
+		            .collect(Collectors.toList());
+		}
+		
 	}
 
 
