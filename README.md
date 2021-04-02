@@ -6,7 +6,8 @@ Computer Shopping Mart
 * Spring Boot
 * MySQL(Production) 📦
 * Mustache.js
-* H2(Testing) 📦
+* JUnit
+* H2 DB(Testing) 📦
 
 
 # Features
